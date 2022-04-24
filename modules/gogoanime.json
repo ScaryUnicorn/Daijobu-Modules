@@ -8,8 +8,8 @@
     "language": ["JPN", "ENG"],
     "baseURL": "https://gogoanime.sk",
     "developer": "ScaryUnicorn",
-    "developerURL": null,
-    "moduleURL": null,
+    "developerURL": "https://github.com/ScaryUnicorn",
+    "moduleURL": "https://raw.githubusercontent.com/ScaryUnicorn/Daijobu-Modules/main/modules/gogoanime.json",
     "searchRequired": true,
     "episodesRequired": false,
     "dubIdentifier": " (dub)"
