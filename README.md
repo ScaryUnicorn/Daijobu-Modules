@@ -8,7 +8,10 @@ These websites are being used to generate watchable anime links
 
 | Domain | URL |
 | ------ | ------ |
-| 5anime.net | https://raw.githubusercontent.com/ScaryUnicorn/Daijobu-Modules/main/modules/5anime.json |
-| AniStream.fun | https://raw.githubusercontent.com/ScaryUnicorn/Daijobu-Modules/main/modules/anistream.json |
-| GoGoAnime.sk | https://raw.githubusercontent.com/ScaryUnicorn/Daijobu-Modules/main/modules/gogoanime.json |
-| Zoro.to | https://raw.githubusercontent.com/ScaryUnicorn/Daijobu-Modules/main/modules/zoro.json |
+| 5Anime | [5anime.net](https://raw.githubusercontent.com/ScaryUnicorn/Daijobu-Modules/main/modules/5anime.json) |
+| AniStream | [AniStream.fun](https://raw.githubusercontent.com/ScaryUnicorn/Daijobu-Modules/main/modules/anistream.json) |
+| GoGoAnime | [GoGoAnime.sk](https://raw.githubusercontent.com/ScaryUnicorn/Daijobu-Modules/main/modules/gogoanime.json) |
+| Zoro | [Zoro.to](https://raw.githubusercontent.com/ScaryUnicorn/Daijobu-Modules/main/modules/zoro.json) |
+
+### How to add a module?
+- Coming soon...
