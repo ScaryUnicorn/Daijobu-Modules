@@ -1,15 +1,15 @@
 {
   "moduleInfo": {
     "apiVersion": 0.1,
-    "name": "AniStream",
-    "acronym": "AS",
+    "name": "Zoro.to",
+    "acronym": "Zoro",
     "description": "Scrapes data from anistream.fun website",
     "version": 1.0,
     "language": ["JPN", "ENG"],
     "baseURL": "https://zoro.to",
     "developer": "ScaryUnicorn",
-    "developerURL": null,
-    "moduleURL": null,
+    "developerURL": "https://github.com/ScaryUnicorn",
+    "moduleURL": "https://raw.githubusercontent.com/ScaryUnicorn/Daijobu-Modules/main/modules/zoro.json",
     "searchRequired": true,
     "episodesRequired": true,
     "dubIdentifier": "dub"
