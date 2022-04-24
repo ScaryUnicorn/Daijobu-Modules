@@ -1,0 +1,124 @@
+{
+  "moduleInfo": {
+    "apiVersion": 0.1,
+    "name": "AniStream",
+    "acronym": "AS",
+    "description": "Scrapes data from anistream.fun website",
+    "version": 1.0,
+    "language": ["JPN", "ENG"],
+    "baseURL": "https://zoro.to",
+    "developer": "ScaryUnicorn",
+    "developerURL": null,
+    "moduleURL": null,
+    "searchRequired": true,
+    "episodesRequired": true,
+    "dubIdentifier": "dub"
+  },
+  "global": {
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Safari/605.1.15",
+      "Referer": "https://zoro.to"
+    },
+    "seperator": "+",
+    "noResolve": []
+  },
+  "search": [
+    {
+      "request": {
+        "url": "/search?keyword=<ANIME_NAME>",
+        "method": "GET",
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Safari/605.1.15",
+          "Referer": "https://zoro.to"
+        },
+        "mainBody": "getElement(\"div.tab-content\")",
+        "items": {
+          "itemSelector": "getElement(\"div.flw-item\")",
+          "animeName": {
+            "animeName": "getElement(\"h3.film-name > a\").params.title",
+            "seperator": ""
+          },
+          "animeURL": {
+            "animeURL": "getElement(\"h3.film-name > a\").params.href",
+            "seperator": "getRegex(\".*-(.*)\\?\")"
+          },
+          "urlExtras": {
+            "animeURL": "baseURL + '/ajax/v2/episode/list/' + animeURL"
+          }
+        }
+      }
+    }
+  ],
+  "episodes": [
+    {
+      "request": {
+        "url": "animeURL",
+        "method": "GET",
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Safari/605.1.15",
+          "Referer": "https://zoro.to/"
+        },
+        "responseType": "json",
+        "mainBody": "getJSON(\"response.html\")",
+        "items": {
+          "itemSelector": "getElement(\"a.ep-item\")",
+          "episodeName": {
+            "episodeName": "getElement(\" \").params.data-number",
+            "seperator": ""
+          },
+          "episodeURL": {
+            "episodeURL": "getElement(\" \").params.href",
+            "seperator": "getRegex(\"ep=(.*)\")"
+          },
+          "urlExtras": {
+            "episodeURL": "baseURL + '/ajax/v2/episode/servers?episodeId=' + episodeURL"
+          }
+        }
+      }
+    }
+  ],
+  "sources": [
+    {
+      "request": {
+        "url": "episodeURL",
+        "method": "GET",
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Safari/605.1.15",
+          "Referer": "https://zoro.to"
+        },
+        "responseType": "json",
+        "mainBody": "getJSON(\"response.html\")",
+        "items": {
+          "itemSelector": "getElement(\"div.server-item\")",
+          "sourceName": {
+            "sourceName": "getElement(\" \").text",
+            "seperator": ""
+          },
+          "sourceURL": {
+            "sourceURL": "getElement(\" \").params.data-id",
+            "seperator": ""
+          },
+          "dubIdentifier": {
+            "dubIdentifier": "getElement(\" \").params.data-type",
+            "seperator": ""
+          },
+          "urlExtras": {
+            "sourceURL": "baseURL + '/ajax/v2/episode/sources?id=' + sourceURL"
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "url": "sourceURL",
+        "method": "GET",
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Safari/605.1.15",
+          "Referer": "https://zoro.to"
+        },
+        "responseType": "json",
+        "mainBody": "getJSON(\"response.link\").json"
+      }
+    }
+  ]
+}

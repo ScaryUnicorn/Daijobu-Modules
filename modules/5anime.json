@@ -1,0 +1,80 @@
+{
+  "moduleInfo": {
+    "apiVersion": 0.1,
+    "name": "5anime",
+    "acronym": "5A",
+    "description": "Scrapes data from 5anime.net website",
+    "version": 1.0,
+    "language": ["JPN", "ENG"],
+    "baseURL": "https://5anime.net",
+    "developer": "ScaryUnicorn",
+    "developerURL": null,
+    "moduleURL": null,
+    "searchRequired": true,
+    "episodesRequired": false,
+    "dubIdentifier": " (dub)"
+  },
+  "global": {
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Safari/605.1.15",
+      "Referer": "https://5anime.net"
+    },
+    "seperator": "+",
+    "noResolve": []
+  },
+  "search": [
+    {
+      "request": {
+        "url": "/search.html?keyword=<ANIME_NAME>",
+        "method": "GET",
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Safari/605.1.15",
+          "Referer": "https://5anime.net"
+        },
+        "mainBody": "getElement(\"div.product__page__content\")",
+        "items": {
+          "itemSelector": "getElement(\"div.product__item\")",
+          "animeName": {
+            "animeName": "getElement(\"h5 > a\").text",
+            "seperator": ""
+          },
+          "animeURL": {
+            "animeURL": "getElement(\"h5 > a\").params.href",
+            "seperator": "/anime"
+          },
+          "yearInfo": {
+            "animeYear": "getElement(\"div.ep\").text",
+            "seperator": ""
+          },
+          "urlExtras": {
+            "animeURL": "baseURL + '/watch' + animeURL + '-' + 'episode' + '-' + '<EPNUMB>'"
+          }
+        }
+      }
+    }
+  ],
+  "sources": [
+    {
+      "request": {
+        "url": "animeURL",
+        "method": "GET",
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Safari/605.1.15",
+          "Referer": "https://5anime.net"
+        },
+        "mainBody": "getElement(\"div.anime__video__player\")",
+        "items": {
+          "itemSelector": "getElement(\"option.dropdown-item\")",
+          "sourceName": {
+            "sourceName": "getElement(\" \").text",
+            "seperator": ""
+          },
+          "sourceURL": {
+            "sourceURL": "getElement(\" \").params.value",
+            "seperator": ""
+          }
+        }
+      }
+    }
+  ]
+}

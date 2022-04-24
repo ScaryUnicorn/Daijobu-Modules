@@ -1,0 +1,76 @@
+{
+  "moduleInfo": {
+    "apiVersion": 0.1,
+    "name": "AniStream",
+    "acronym": "AS",
+    "description": "Scrapes data from anistream.fun website",
+    "version": 1.0,
+    "language": ["JPN", "ENG"],
+    "baseURL": "https://anistream.fun",
+    "developer": "ScaryUnicorn",
+    "developerURL": null,
+    "moduleURL": null,
+    "searchRequired": true,
+    "episodesRequired": false,
+    "dubIdentifier": " (dub)"
+  },
+  "global": {
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Safari/605.1.15",
+      "Referer": "https://anistream.fun"
+    },
+    "seperator": "+",
+    "noResolve": []
+  },
+  "search": [
+    {
+      "request": {
+        "url": "/results?q=<ANIME_NAME>",
+        "method": "GET",
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Safari/605.1.15",
+          "Referer": "https://anistream.fun"
+        },
+        "mainBody": "getElement(\"div.movie\")",
+        "items": {
+          "itemSelector": "getElement(\"div.card\")",
+          "animeName": {
+            "animeName": "getElement(\"h6 > a\").text",
+            "seperator": ""
+          },
+          "animeURL": {
+            "animeURL": "getElement(\"h6 > a\").params.href",
+            "seperator": "-episode-1"
+          },
+          "urlExtras": {
+            "animeURL": "baseURL + animeURL + '-' + 'episode' + '-' + '<EPNUMB>'"
+          }
+        }
+      }
+    }
+  ],
+  "sources": [
+    {
+      "request": {
+        "url": "animeURL",
+        "method": "GET",
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Safari/605.1.15",
+          "Referer": "https://anistream.fun"
+        },
+        "mainBody": "getElement(\"body\")",
+        "items": {
+          "itemSelector": "getElement(\"iframe.movie\")",
+          "sourceURL": {
+            "sourceURL": "getElement(\" \").params.src",
+            "seperator": ""
+          },
+          "sourceName": {
+            "sourceName": "getElement(\" \").text",
+            "seperator": ""
+          }
+        }
+      }
+    }
+  ]
+}
