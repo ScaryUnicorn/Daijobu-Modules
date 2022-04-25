@@ -3,7 +3,7 @@
     "apiVersion": 0.1,
     "name": "Zoro.to",
     "acronym": "Zoro",
-    "description": "Scrapes data from anistream.fun website",
+    "description": "Scrapes data from zoro.to website",
     "version": 1.0,
     "language": ["JPN", "ENG"],
     "baseURL": "https://zoro.to",
