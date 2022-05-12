@@ -12,6 +12,7 @@ These websites are being used to generate watchable anime links
 | AniStream | [AniStream.fun](https://raw.githubusercontent.com/ScaryUnicorn/Daijobu-Modules/main/modules/anistream.json) |
 | GoGoAnime | [GoGoAnime.sk](https://raw.githubusercontent.com/ScaryUnicorn/Daijobu-Modules/main/modules/gogoanime.json) |
 | Zoro | [Zoro.to](https://raw.githubusercontent.com/ScaryUnicorn/Daijobu-Modules/main/modules/zoro.json) |
+| AnimeSaga | [AnimeSa.ga](https://raw.githubusercontent.com/ScaryUnicorn/Daijobu-Modules/main/modules/animesa.ga.json) |
 
 ### How to add a module?
 - Coming soon...
