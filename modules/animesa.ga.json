@@ -9,7 +9,7 @@
         "language": ["JPN", "ENG"],
         "baseURL": "https://animesa.ga",
         "developer": "ScaryUnicorn",
-        "developerURL": "https://github.com/ScaryUnicorn/Daijobu-Modules",
+        "developerURL": "https://raw.githubusercontent.com/ScaryUnicorn/Daijobu-Modules/main/modules/animesa.ga.json",
         "moduleURL": "",
         "episodesRequired": false,
         "searchRequired": true,
