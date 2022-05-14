@@ -1,7 +1,7 @@
 {
       "moduleInfo": {
         "apiVersion": 0.12,
-        "name": "AnimeSada",
+        "name": "AnimeSaga",
         "acronym": "AS",
         "description":
             "Scrapes data from animesa.ga website. \nDOES NOT WORK WITH apiVersion 0.11",
