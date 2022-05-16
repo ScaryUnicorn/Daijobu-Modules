@@ -46,11 +46,7 @@
         },
         "urlExtras": {
           "animeURL": "animeURL + '-episode-' + '<EPNUMB>'"
-        },
-        "csrfToken": {
-          "csrfToken": "getRegex(\" \")",
-          "seperator": ""
-        },
+        }
       }
     }
   }],
