@@ -1,8 +1,8 @@
 {
       "moduleInfo": {
         "apiVersion": 0.1,
-        "name": "GoGoAnime",
-        "acronym": "GGA",
+        "name": "AnimeFox",
+        "acronym": "AF",
         "description": "Scrapes data from animefox.tv website",
         "version": 1.0,
         "language": ["JPN", "ENG"],
