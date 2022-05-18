@@ -2,7 +2,7 @@
 A list of all official modules for Daijōbu
 
 
-### Supported Scrapers
+### Supported Modules
 
 These websites are being used to generate watchable anime links
 
