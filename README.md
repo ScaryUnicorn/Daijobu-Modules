@@ -6,7 +6,7 @@ A list of all official modules for Daijōbu
 
 These websites are being used to generate watchable anime links
 
-| Domain | URL |
+| Name | URL |
 | ------ | ------ |
 | 5Anime | [5anime.net](https://raw.githubusercontent.com/ScaryUnicorn/Daijobu-Modules/main/modules/5anime.json) |
 | AniStream | [AniStream.fun](https://raw.githubusercontent.com/ScaryUnicorn/Daijobu-Modules/main/modules/anistream.json) |
@@ -14,6 +14,7 @@ These websites are being used to generate watchable anime links
 | Zoro | [Zoro.to](https://raw.githubusercontent.com/ScaryUnicorn/Daijobu-Modules/main/modules/zoro.json) |
 | AnimeSaga | [AnimeSa.ga](https://raw.githubusercontent.com/ScaryUnicorn/Daijobu-Modules/main/modules/animesa.ga.json) |
 | SimplyAWeeb | [SimplyAWeeb.to](https://raw.githubusercontent.com/ScaryUnicorn/Daijobu-Modules/main/modules/SimplyAWeeb.to.json) |
+| AnimeFox | [AnimeFox.tv](https://raw.githubusercontent.com/ScaryUnicorn/Daijobu-Modules/main/modules/AnimeFox.tv.json) |
 
 ### How to add a module?
 - Coming soon...
