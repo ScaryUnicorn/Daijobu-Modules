@@ -1,0 +1,91 @@
+{
+      "moduleInfo": {
+        "apiVersion": 0.1,
+        "name": "AnimeFreak",
+        "acronym": "AF",
+        "description":
+            "Scrapes data from AnimeFreak.vip website\nRequires Module version v0.13\nModule modifier is required",
+        "version": 1.0,
+        "language": ["JPN", "ENG"],
+        "baseURL": "https://www.animefreak.vip",
+        "developer": "ScaryUnicorn",
+        "developerURL": "https://github.com/ScaryUnicorn",
+        "moduleURL":
+            "https://raw.githubusercontent.com/ScaryUnicorn/Daijobu-Modules/main/modules/AnimeFreak.vip.json",
+        "episodesRequired": false,
+        "searchRequired": true,
+        "dubIdentifier": " dubbed"
+      },
+      "global": {
+        "headers": {
+          "User-Agent":
+              "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Safari/605.1.15",
+          "Referer": "https://www.animefreak.vip"
+        },
+        "seperator": "%20",
+        "noResolve": [],
+        "sourceModifier": {
+          "vidstream": "https://goload.one/streaming.php?id=<sourceURL>",
+          "mplayer": "https://mplayer.sbs/server.php?id=<sourceURL>"
+        }
+      },
+      "search": [
+        {
+          "request": {
+            "url":
+                "https://moo.yare.wtf/anime/auto-complete/<ANIME_NAME>?token=YopgjtY0CA0q6a7NX1Oe",
+            "method": "GET",
+            "baseRequired": false,
+            "headers": {
+              "User-Agent":
+                  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Safari/605.1.15",
+              "Referer": "https://www.animefreak.vip"
+            },
+            "responseType": "json",
+            "mainBody": "getJSON(\"response.data\").json",
+            "items": {
+              "itemSelector": "json.list()",
+              "animeName": {
+                "animeName": "getJSON(\"item.name\")",
+                "seperator": ""
+              },
+              "animeURL": {
+                "animeURL": "getJSON(\"item.slug\")",
+                "seperator": ""
+              },
+              "urlExtras": {
+                "animeURL":
+                    "'https://moo.yare.wtf/anime-episode/slug/' + animeURL + '-episode-' + '<EPNUMB>' + '?token=YopgjtY0CA0q6a7NX1Oe'"
+              }
+            }
+          }
+        }
+      ],
+      "sources": [
+        {
+          "request": {
+            "url": "animeURL",
+            "baseRequired": false,
+            "method": "GET",
+            "headers": {
+              "User-Agent":
+                  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Safari/605.1.15",
+              "Referer": "https://www.animefreak.vip"
+            },
+            "responseType": "json",
+            "mainBody": "getJSON(\"response.data.videos\").json",
+            "items": {
+              "itemSelector": "json.list()",
+              "sourceName": {
+                "sourceName": "getJSON(\"item.host\")",
+                "seperator": ""
+              },
+              "sourceURL": {
+                "sourceURL": "getJSON(\"item.video_id\")",
+                "seperator": ""
+              }
+            }
+          }
+        }
+      ]
+    }
